@@ -57,7 +57,8 @@ function loadClient(fetchImpl, { language = 'zh-CN' } = {}) {
   const window = {
     __ModuleLoader__: {
       load: (definition) => {
-        assert.equal(definition.id, 'dsh-token-usage')
+        // The loader rejects a bundle that registers under any other id.
+        assert.equal(definition.id, '@aixnest/dsh-token-usage')
         plugin = definition.factory((name) => {
           assert.equal(name, 'react')
           return renderer.React

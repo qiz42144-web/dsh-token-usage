@@ -7,7 +7,9 @@
  * change (page data + first record page), then nothing while the page sits open.
  */
 window.__ModuleLoader__.load({
-  id: 'dsh-token-usage',
+  // Must match the package name exactly: the loader looks the module up by the
+  // specifier it served, and rejects a bundle that registers anything else.
+  id: '@aixnest/dsh-token-usage',
   factory(require) {
     const React = require('react')
     const h = React.createElement
