@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "title": "Token Usage",
+    "description": "Local statistics of the tokens you actually used, split by provider, account, plan and model, with time ranges, trends and request records. Reads only usage metadata that DSH already recorded; it never calls a model and never reads prompts or replies."
+  },
+  "nav": "Token Usage",
+  "panel": {
+    "title": "Token Usage"
+  },
+  "range": {
+    "today": "Today",
+    "week": "This week",
+    "month": "This month",
+    "year": "This year",
+    "all": "All time",
+    "custom": "Custom",
+    "from": "Start date",
+    "to": "End date",
+    "fromTime": "Start time",
+    "toTime": "End time",
+    "apply": "Apply",
+    "reset": "Reset"
+  },
+  "metric": {
+    "total": "Total",
+    "input": "Input",
+    "output": "Output",
+    "cache": "Cached",
+    "reasoning": "Reasoning",
+    "cacheWrite": "Cache write",
+    "requests": "Requests"
+  },
+  "format": {
+    "label": "Number format",
+    "short": "Short",
+    "full": "Full"
+  },
+  "filter": {
+    "all": "All models",
+    "allProviders": "All providers",
+    "search": "Search models",
+    "clear": "Clear filter",
+    "providers": "Providers",
+    "accounts": "Accounts",
+    "models": "Models",
+    "plan": "Plan",
+    "noPlan": "No plan",
+    "rename": "Rename",
+    "setPlan": "Set plan",
+    "save": "Save",
+    "cancel": "Cancel",
+    "unknown": "Unidentified",
+    "empty": "No data yet",
+    "close": "Close"
+  },
+  "trend": {
+    "title": "Trend",
+    "day": "Day",
+    "week": "Week",
+    "month": "Month",
+    "year": "Year",
+    "empty": "No data in this range"
+  },
+  "rank": {
+    "title": "Ranking",
+    "model": "Model",
+    "provider": "Provider",
+    "account": "Account",
+    "plan": "Plan",
+    "empty": "No data in this range"
+  },
+  "records": {
+    "title": "Requests",
+    "time": "Time",
+    "provider": "Provider",
+    "account": "Account",
+    "plan": "Plan",
+    "model": "Model",
+    "input": "Input",
+    "output": "Output",
+    "total": "Total",
+    "more": "Load more",
+    "empty": "No requests recorded yet",
+    "unknown": "Unknown",
+    "note": "Prompts, replies, API keys and request bodies are never stored."
+  },
+  "status": {
+    "since": "Recording since",
+    "unknownNote": "{n} request(s) returned no usage and are excluded from the totals",
+    "loading": "Loading",
+    "failed": "Failed to load statistics",
+    "retry": "Retry",
+    "rangeLabel": "Range"
+  }
+}

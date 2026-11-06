@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Token usage">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#1c6fb8"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="#2b8ada" stroke-width="1.5"/>
+  <g fill="#ffffff">
+    <rect x="14" y="34" width="7" height="16" rx="2.5"/>
+    <rect x="25" y="26" width="7" height="24" rx="2.5"/>
+    <rect x="36" y="18" width="7" height="32" rx="2.5"/>
+  </g>
+  <g fill="none" stroke="#a8d8ff" stroke-width="3" stroke-linecap="round">
+    <circle cx="49.5" cy="22.5" r="6.5"/>
+  </g>
+  <g fill="#a8d8ff">
+    <rect x="47.6" y="13" width="3.8" height="19" rx="1.9"/>
+  </g>
+</svg>

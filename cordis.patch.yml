@@ -1,0 +1,15 @@
+# dsh-token-usage bundle patch.
+#
+# One Host row serves the statistics API and records usage passively from the
+# session event feed. The Client half adds a sidebar panel and a full page.
+#
+# Optional configuration (all keys optional):
+#   dbPath           absolute path of the SQLite file
+#                    default: <DSH_HOME>/token-usage/usage.db
+#   recordAttempts   record model steps that returned no assistant message
+#                    at all (no usage available) as "unknown" request rows
+#                    default: true
+- insert:
+    - id: token-usage
+      name: dsh-token-usage
+      config: {}

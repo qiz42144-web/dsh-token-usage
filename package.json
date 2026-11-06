@@ -1,0 +1,49 @@
+{
+  "name": "dsh-token-usage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local Token usage statistics for the DeepSeek Harness: per provider, account, plan and model, with time ranges, trends and request records. Never calls a model.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "lib",
+    "locale/*.json",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "TEST-REPORT.md",
+    "dev",
+    "test"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "tokens",
+    "usage",
+    "statistics"
+  ],
+  "license": "MIT"
+}
