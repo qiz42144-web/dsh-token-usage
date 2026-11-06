@@ -3,7 +3,7 @@
 **简体中文** | [English](README_EN.md)
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-35CFE3.svg)](LICENSE)
-[![npm version](https://img.shields.io/npm/v/@qiz42144-web/dsh-token-usage.svg)](https://www.npmjs.com/package/@qiz42144-web/dsh-token-usage)
+[![npm version](https://img.shields.io/npm/v/@aixnest/dsh-token-usage.svg)](https://www.npmjs.com/package/@aixnest/dsh-token-usage)
 [![GitHub stars](https://img.shields.io/github/stars/qiz42144-web/dsh-token-usage)](https://github.com/qiz42144-web/dsh-token-usage/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/qiz42144-web/dsh-token-usage)](https://github.com/qiz42144-web/dsh-token-usage/issues)
 
@@ -75,13 +75,13 @@
 
 ### 从 npm 安装（推荐）
 
-npm 包名：**`@qiz42144-web/dsh-token-usage`**
-包地址：https://www.npmjs.com/package/@qiz42144-web/dsh-token-usage
+npm 包名：**`@aixnest/dsh-token-usage`**
+包地址：https://www.npmjs.com/package/@aixnest/dsh-token-usage
 
 在 DSH 会话中执行：
 
 ```
-plugin_manager install_bundle  target = @qiz42144-web/dsh-token-usage
+plugin_manager install_bundle  target = @aixnest/dsh-token-usage
 ```
 
 ### 从源码安装
@@ -105,7 +105,7 @@ plugin_manager install_bundle  target = <本目录的绝对路径>
 重新执行一次安装命令即可升级到最新版：
 
 ```
-plugin_manager install_bundle  target = @qiz42144-web/dsh-token-usage
+plugin_manager install_bundle  target = @aixnest/dsh-token-usage
 ```
 
 > **修改插件源码后需要重启 DSH。** 新版本会立即生效；如果这次更新改动了 Host 侧模块，插件管理器会提示 `restart-required`，按提示重启即可。
@@ -113,7 +113,7 @@ plugin_manager install_bundle  target = @qiz42144-web/dsh-token-usage
 ### 卸载
 
 ```
-plugin_manager remove_bundle  target = @qiz42144-web/dsh-token-usage
+plugin_manager remove_bundle  target = @aixnest/dsh-token-usage
 ```
 
 从源码安装的用目录路径：`plugin_manager remove_bundle  target = <本目录的绝对路径>`。
@@ -126,7 +126,7 @@ plugin_manager remove_bundle  target = @qiz42144-web/dsh-token-usage
 
 确认安装返回 `applied` 而不是 `restart-required`；后者需要重启 DSH。
 
-**提示找不到模块 `@qiz42144-web/dsh-token-usage`**
+**提示找不到模块 `@aixnest/dsh-token-usage`**
 
 说明 profile 的 `node_modules` 里没有这个包。重新执行安装命令，或检查 profile 的 `package.json` 里是否有该依赖。
 

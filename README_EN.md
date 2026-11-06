@@ -3,7 +3,7 @@
 [简体中文](README.md) | **English**
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-35CFE3.svg)](LICENSE)
-[![npm version](https://img.shields.io/npm/v/@qiz42144-web/dsh-token-usage.svg)](https://www.npmjs.com/package/@qiz42144-web/dsh-token-usage)
+[![npm version](https://img.shields.io/npm/v/@aixnest/dsh-token-usage.svg)](https://www.npmjs.com/package/@aixnest/dsh-token-usage)
 [![GitHub stars](https://img.shields.io/github/stars/qiz42144-web/dsh-token-usage)](https://github.com/qiz42144-web/dsh-token-usage/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/qiz42144-web/dsh-token-usage)](https://github.com/qiz42144-web/dsh-token-usage/issues)
 
@@ -75,13 +75,13 @@ Total, input, output, cached, **cache hit rate**, reasoning and request count �
 
 ### From npm (recommended)
 
-Package: **`@qiz42144-web/dsh-token-usage`**
-Registry page: https://www.npmjs.com/package/@qiz42144-web/dsh-token-usage
+Package: **`@aixnest/dsh-token-usage`**
+Registry page: https://www.npmjs.com/package/@aixnest/dsh-token-usage
 
 From a DSH session:
 
 ```
-plugin_manager install_bundle  target = @qiz42144-web/dsh-token-usage
+plugin_manager install_bundle  target = @aixnest/dsh-token-usage
 ```
 
 ### From source
@@ -105,7 +105,7 @@ A "Token usage" entry appears in the sidebar; opening it shows the full page. Th
 Run the same install command again to upgrade:
 
 ```
-plugin_manager install_bundle  target = @qiz42144-web/dsh-token-usage
+plugin_manager install_bundle  target = @aixnest/dsh-token-usage
 ```
 
 > **Restart DSH after changing the plugin's own source.** A new version applies immediately; if the update touched the Host half, the plugin manager reports `restart-required` — restart as prompted.
@@ -113,7 +113,7 @@ plugin_manager install_bundle  target = @qiz42144-web/dsh-token-usage
 ### Uninstall
 
 ```
-plugin_manager remove_bundle  target = @qiz42144-web/dsh-token-usage
+plugin_manager remove_bundle  target = @aixnest/dsh-token-usage
 ```
 
 For a source install, pass the directory path instead: `plugin_manager remove_bundle  target = <absolute path to this directory>`.
@@ -126,7 +126,7 @@ The database is not deleted. Remove `$DSH_HOME/token-usage/` yourself if you wan
 
 Check that the install reported `applied` rather than `restart-required`; the latter needs a DSH restart.
 
-**"Cannot find module `@qiz42144-web/dsh-token-usage`"**
+**"Cannot find module `@aixnest/dsh-token-usage`"**
 
 The profile's `node_modules` does not contain the package. Run the install command again, or check the profile's `package.json` for the dependency.
 

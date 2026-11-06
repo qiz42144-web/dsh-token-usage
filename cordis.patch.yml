@@ -16,5 +16,5 @@
 #                    default: true
 - insert:
     - id: token-usage
-      name: "@qiz42144-web/dsh-token-usage"
+      name: "@aixnest/dsh-token-usage"
       config: {}
