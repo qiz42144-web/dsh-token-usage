@@ -16,8 +16,8 @@ import { getCatalog, getRankings, getRecords, getSummary, getTrend, parseFilters
 import { resolveRange } from '../lib/time.js'
 
 const ROWS = Number(process.argv[2] ?? 100_000)
-const PROVIDERS = ['deepseek-account', 'baidu', 'ark', 'commandcode', 'openai-codex']
-const MODELS = ['deepseek-flash', 'deepseek-v4.1-flash-1017', 'deepseek-v4.1-flash', 'glm-5.3', 'kimi-k3']
+const PROVIDERS = ['provider-e', 'provider-a', 'provider-c', 'provider-d', 'provider-g']
+const MODELS = ['model-epsilon', 'model-beta', 'model-alpha', 'model-gamma', 'model-delta']
 const DAY = 86_400_000
 
 const dir = mkdtempSync(join(tmpdir(), 'dsh-token-usage-bench-'))
@@ -113,7 +113,7 @@ const queries = [
   timeIt('records · page 50 · all time', () => getRecords(store.db, ranges.all, filter, 0, 50)),
   timeIt('records · page 50 · deep page', () => getRecords(store.db, ranges.all, filter, 5000, 50)),
   timeIt('catalog · all time', () => getCatalog(store.db, {})),
-  timeIt('summary · provider filter', () => getSummary(store.db, ranges.all, parseFilters({ provider: 'baidu' }))),
+  timeIt('summary · provider filter', () => getSummary(store.db, ranges.all, parseFilters({ provider: 'provider-a' }))),
   timeIt('summary · search', () => getSummary(store.db, ranges.all, parseFilters({ q: 'glm' }))),
 ]
 

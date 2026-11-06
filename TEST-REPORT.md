@@ -194,10 +194,10 @@ Before writing the adapter, all local session logs were decoded and analysed
 | `totalTokens == input + output + cacheRead + cacheWrite` | 17,926 |
 | neither | **0** |
 
-Providers observed: `commandcode`, `baidu`, `ark`, `deepseek-official`,
-`deepseek-account`, `openai-codex`, `agent`. The same model id
-(`deepseek-v4.1-flash`) appears under four different providers, which is why the
-identity is the `(provider, account, model)` triple.
+The same model id appears under several different providers, which is why the
+identity is the `(provider, account, model)` triple. The shipped fixture uses
+fictional ids (`provider-a`, `model-alpha`, …) to keep that shape without any
+real provider or model name.
 
 Also verified: only `assistant/message` carries usage — `step/end`, `turn/end`
 and `assistant/attempt` do not.

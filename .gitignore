@@ -32,3 +32,6 @@ test/fixtures/real-usage.json
 .vscode/
 .idea/
 *.swp
+
+# Synthetic database used only for documentation screenshots
+dev/synthetic/

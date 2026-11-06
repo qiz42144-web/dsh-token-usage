@@ -51,7 +51,7 @@ test('counts are integers and negative or non-finite values are rejected', () =>
 })
 
 test('identity falls back to the unknown bucket instead of dropping the record', () => {
-  assert.deepEqual(readIdentity({ message: { source: { kind: 'model', provider: 'baidu', model: 'glm-5.3' } } }), { provider: 'baidu', model: 'glm-5.3' })
+  assert.deepEqual(readIdentity({ message: { source: { kind: 'model', provider: 'provider-a', model: 'model-gamma' } } }), { provider: 'provider-a', model: 'model-gamma' })
   assert.deepEqual(readIdentity({ message: {} }), { provider: 'unknown', model: 'unknown' })
   assert.deepEqual(readIdentity({}), { provider: 'unknown', model: 'unknown' })
   assert.deepEqual(readIdentity(null), { provider: 'unknown', model: 'unknown' })

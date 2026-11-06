@@ -316,7 +316,7 @@ test('the request log hides steps without a message but keeps real requests', ()
       data: {
         turn: 900,
         step: 1,
-        message: { role: 'assistant', content: [], source: { kind: 'model', provider: 'provider-b', model: 'kimi-k3' } },
+        message: { role: 'assistant', content: [], source: { kind: 'model', provider: 'provider-b', model: 'model-delta' } },
       },
     })
 
@@ -345,7 +345,7 @@ test('the cache hit rate is weighted across requests, not averaged', () => {
       data: {
         turn: 1,
         step: seq,
-        message: { role: 'assistant', content: [], source: { kind: 'model', provider: 'provider-b', model: 'kimi-k3' } },
+        message: { role: 'assistant', content: [], source: { kind: 'model', provider: 'provider-b', model: 'model-delta' } },
         usage: {
           inputTokens: input,
           outputTokens: 1,
@@ -382,7 +382,7 @@ test('a missing cache counter yields null, never 0%', () => {
       data: {
         turn: 1,
         step: 1,
-        message: { role: 'assistant', content: [], source: { kind: 'model', provider: 'provider-b', model: 'kimi-k3' } },
+        message: { role: 'assistant', content: [], source: { kind: 'model', provider: 'provider-b', model: 'model-delta' } },
         usage: { inputTokens: 500, outputTokens: 10, totalTokens: 510 },
       },
     })
@@ -481,8 +481,8 @@ test('the catalog only lists identities that actually have records', () => {
     assert.ok(catalog.providers.length > 0)
     const total = catalog.providers.reduce((sum, provider) => sum + provider.total, 0)
     assert.equal(total, fixture.expected.total)
-    const baidu = catalog.providers.find((entry) => entry.providerId === 'provider-a')
-    assert.equal(baidu.name, 'Provider A', 'a default provider name is used until a user label exists')
+    const providerA = catalog.providers.find((entry) => entry.providerId === 'provider-a')
+    assert.equal(providerA.name, 'Provider A', 'a default provider name is used until a user label exists')
     for (const provider of catalog.providers) {
       for (const account of provider.accounts) {
         for (const model of account.models) {

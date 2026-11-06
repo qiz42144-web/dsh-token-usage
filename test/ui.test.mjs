@@ -123,42 +123,42 @@ const catalog = {
   plans: ['1017 套餐'],
   providers: [
     {
-      providerId: 'baidu',
-      name: '百度千帆',
+      providerId: 'provider-a',
+      name: 'Provider A',
       providerLabel: null,
-      defaultName: 'baidu',
+      defaultName: 'provider-a',
       total: 3_000_000_000,
       requests: 30,
       accounts: [
         {
-          accountId: 'baidu',
-          name: '百度千帆',
+          accountId: 'provider-a',
+          name: 'Provider A',
           accountLabel: null,
           total: 3_000_000_000,
           requests: 30,
           models: [
-            { modelId: 'deepseek-v4.1-flash-1017', name: 'V4.1 Flash 1017', modelLabel: 'V4.1 Flash 1017', plan: '1017 套餐', requests: 20, total: 2_000_000_000 },
-            { modelId: 'glm-5.3', name: 'glm-5.3', modelLabel: null, plan: null, requests: 10, total: 1_000_000_000 },
+            { modelId: 'model-beta', name: 'Alpha Prime', modelLabel: 'Alpha Prime', plan: '1017 套餐', requests: 20, total: 2_000_000_000 },
+            { modelId: 'model-gamma', name: 'model-gamma', modelLabel: null, plan: null, requests: 10, total: 1_000_000_000 },
           ],
         },
       ],
     },
     {
-      providerId: 'ark',
-      name: 'ark',
+      providerId: 'provider-c',
+      name: 'provider-c',
       providerLabel: null,
-      defaultName: 'ark',
+      defaultName: 'provider-c',
       total: 1_254_321_987,
       requests: 12,
       accounts: [
         {
-          accountId: 'ark',
-          name: 'ark',
+          accountId: 'provider-c',
+          name: 'provider-c',
           accountLabel: null,
           total: 1_254_321_987,
           requests: 12,
           models: [
-            { modelId: 'deepseek-v4.1-flash', name: 'deepseek-v4.1-flash', modelLabel: null, plan: null, requests: 12, total: 1_254_321_987 },
+            { modelId: 'model-alpha', name: 'model-alpha', modelLabel: null, plan: null, requests: 12, total: 1_254_321_987 },
           ],
         },
       ],
@@ -189,15 +189,15 @@ function bootstrapPayload(overrides = {}) {
     ],
     rankings: {
       model: [
-        { key: 'deepseek-v4.1-flash-1017', name: 'V4.1 Flash 1017', providerId: 'baidu', accountId: 'baidu', providerName: '百度千帆', accountName: '百度千帆', requests: 20, total: 2_000_000_000, input: 1, output: 1 },
-        { key: 'glm-5.3', name: 'glm-5.3', providerId: 'baidu', accountId: 'baidu', providerName: '百度千帆', accountName: '百度千帆', requests: 10, total: 1_000_000_000, input: 1, output: 1 },
+        { key: 'model-beta', name: 'Alpha Prime', providerId: 'provider-a', accountId: 'provider-a', providerName: 'Provider A', accountName: 'Provider A', requests: 20, total: 2_000_000_000, input: 1, output: 1 },
+        { key: 'model-gamma', name: 'model-gamma', providerId: 'provider-a', accountId: 'provider-a', providerName: 'Provider A', accountName: 'Provider A', requests: 10, total: 1_000_000_000, input: 1, output: 1 },
       ],
       provider: [
-        { key: 'baidu', name: '百度千帆', requests: 30, total: 3_000_000_000, input: 1, output: 1, modelCount: 2 },
-        { key: 'ark', name: 'ark', requests: 12, total: 1_254_321_987, input: 1, output: 1, modelCount: 1 },
+        { key: 'provider-a', name: 'Provider A', requests: 30, total: 3_000_000_000, input: 1, output: 1, modelCount: 2 },
+        { key: 'provider-c', name: 'provider-c', requests: 12, total: 1_254_321_987, input: 1, output: 1, modelCount: 1 },
       ],
       account: [
-        { key: 'baidu', name: '百度千帆', providerId: 'baidu', providerName: '百度千帆', requests: 30, total: 3_000_000_000, input: 1, output: 1 },
+        { key: 'provider-a', name: 'Provider A', providerId: 'provider-a', providerName: 'Provider A', requests: 30, total: 3_000_000_000, input: 1, output: 1 },
       ],
       plan: [
         { key: '1017 套餐', name: '1017 套餐', requests: 20, total: 2_000_000_000, input: 1, output: 1 },
@@ -221,8 +221,8 @@ function recordsPayload() {
     items: [
       {
         id: 'msg:s1:10', ts: new Date(2026, 10, 3, 14, 5).getTime(), turn: 1, step: 1, source: 'message',
-        providerId: 'baidu', providerName: '百度千帆', accountId: 'baidu', accountName: '百度千帆',
-        modelId: 'deepseek-v4.1-flash-1017', modelName: 'V4.1 Flash 1017', plan: '1017 套餐',
+        providerId: 'provider-a', providerName: 'Provider A', accountId: 'provider-a', accountName: 'Provider A',
+        modelId: 'model-beta', modelName: 'Alpha Prime', plan: '1017 套餐',
         known: true, input: 12_000, output: 800, total: 12_800, cacheRead: 0, cacheWrite: 0, reasoning: null,
       },
       {
@@ -319,8 +319,8 @@ test('the page renders real aggregated numbers after the first load', async () =
   assert.ok(text.includes('1.23M'), 'output tokens are rendered in short form')
   assert.ok(text.includes('98.77K'), 'reasoning tokens are rendered')
   assert.ok(text.includes('42'), 'the request count is rendered')
-  assert.ok(text.includes('百度千帆'), 'provider display names come from the catalog')
-  assert.ok(text.includes('V4.1 Flash 1017'), 'model display names come from the catalog')
+  assert.ok(text.includes('Provider A'), 'provider display names come from the catalog')
+  assert.ok(text.includes('Alpha Prime'), 'model display names come from the catalog')
   assert.ok(text.includes('2 条请求未返回 usage'), 'unknown usage is disclosed, not counted as zero')
   assert.ok(text.includes('2026-10-01'), 'the recording start date is shown')
 })
@@ -680,12 +680,12 @@ test('the filter tree groups models under provider and plan', async () => {
   // provider is not rendered as its own level.
   assert.ok(!depths.includes('3'), 'no redundant account level')
   const labels = rows.map((node) => textOf(node))
-  assert.equal(labels.filter((label) => label.startsWith('百度千帆')).length, 1, 'the provider name appears once')
+  assert.equal(labels.filter((label) => label.startsWith('Provider A')).length, 1, 'the provider name appears once')
   const text = textOf(opened)
   assert.ok(text.includes('1017 套餐'), 'the plan label is rendered in the tree')
   assert.ok(text.includes('未设置套餐'), 'models without a plan get their own group')
   // The raw model id stays reachable as a tooltip so it is never hidden.
-  const modelRow = rows.find((node) => node.props.title && node.props.title.includes('deepseek-v4.1-flash-1017'))
+  const modelRow = rows.find((node) => node.props.title && node.props.title.includes('model-beta'))
   assert.ok(modelRow, 'the real model id is exposed')
 })
 
@@ -694,28 +694,28 @@ test('the account level appears only when it carries information', async () => {
   const twoAccounts = {
     plans: [],
     providers: [{
-      providerId: 'baidu',
-      name: '百度千帆',
+      providerId: 'provider-a',
+      name: 'Provider A',
       providerLabel: null,
-      defaultName: 'baidu',
+      defaultName: 'provider-a',
       total: 3_000_000_000,
       requests: 30,
       accounts: [
         {
-          accountId: 'baidu',
-          name: '百度千帆',
+          accountId: 'provider-a',
+          name: 'Provider A',
           accountLabel: null,
           total: 2_000_000_000,
           requests: 20,
-          models: [{ modelId: 'glm-5.3', name: 'glm-5.3', modelLabel: null, plan: null, requests: 20, total: 2_000_000_000 }],
+          models: [{ modelId: 'model-gamma', name: 'model-gamma', modelLabel: null, plan: null, requests: 20, total: 2_000_000_000 }],
         },
         {
-          accountId: 'baidu-b',
+          accountId: 'provider-b',
           name: '账号 B',
           accountLabel: '账号 B',
           total: 1_000_000_000,
           requests: 10,
-          models: [{ modelId: 'glm-5.3', name: 'glm-5.3', modelLabel: null, plan: null, requests: 10, total: 1_000_000_000 }],
+          models: [{ modelId: 'model-gamma', name: 'model-gamma', modelLabel: null, plan: null, requests: 10, total: 1_000_000_000 }],
         },
       ],
     }],
@@ -728,9 +728,9 @@ test('the account level appears only when it carries information', async () => {
   const rows = findAll(opened, (node) => node.tag === 'button' && node.props && node.props['data-depth'] !== undefined)
   const labels = rows.map((node) => textOf(node))
   assert.ok(labels.some((label) => label.startsWith('账号 B')), 'a second account is listed')
-  assert.equal(labels.filter((label) => label.startsWith('百度千帆')).length, 2, 'provider and its default account are both shown')
+  assert.equal(labels.filter((label) => label.startsWith('Provider A')).length, 2, 'provider and its default account are both shown')
   // Both accounts keep their own model row, so filtering still separates them.
-  const modelRows = rows.filter((node) => node.props.title && node.props.title.includes('glm-5.3'))
+  const modelRows = rows.filter((node) => node.props.title && node.props.title.includes('model-gamma'))
   assert.equal(modelRows.length, 2, 'each account keeps its own model entry')
 })
 
@@ -799,7 +799,7 @@ test('a provider filter reloads the dashboard with that filter', async () => {
   providerButton.props.onClick()
   const after = await renderer.render(main.component({}))
   const last = calls.filter((call) => call.body.method === 'bootstrap').pop()
-  assert.equal(last.body.args.provider, 'baidu')
+  assert.equal(last.body.args.provider, 'provider-a')
   assert.ok(textOf(after).includes('4.25B'))
 })
 
@@ -987,8 +987,8 @@ test('load more appends the next page', async () => {
           id: `msg:s1:${offset}`,
           ts: new Date(2026, 10, 3, 14, 5).getTime() - offset,
           turn: 1, step: 1, source: 'message',
-          providerId: 'baidu', providerName: '百度千帆', accountId: 'baidu', accountName: '百度千帆',
-          modelId: 'glm-5.3', modelName: 'glm-5.3', plan: null,
+          providerId: 'provider-a', providerName: 'Provider A', accountId: 'provider-a', accountName: 'Provider A',
+          modelId: 'model-gamma', modelName: 'model-gamma', plan: null,
           known: true, input: 10, output: 5, total: 15, cacheRead: 0, cacheWrite: 0, reasoning: null,
         }],
       }
@@ -1231,17 +1231,17 @@ test('a provider row shows the raw id under its display name', async () => {
   const current = await renderer.render(main.component({}))
 
   const rows = findAll(current, (node) => node.tag === 'div' && node.props && node.props.role === 'button')
-  const target = rows.find((row) => textOf(row).includes('百度千帆'))
+  const target = rows.find((row) => textOf(row).includes('Provider A'))
   assert.ok(target, 'the renamed provider is listed')
   const text = textOf(target)
-  assert.ok(text.includes('百度千帆'), `the display name is kept: ${text}`)
-  assert.ok(text.includes('baidu'), `the raw id is shown too: ${text}`)
+  assert.ok(text.includes('Provider A'), `the display name is kept: ${text}`)
+  assert.ok(text.includes('provider-a'), `the raw id is shown too: ${text}`)
   // The subtitle is the id, not a repeat of the name.
   const dim = findAll(target, (node) => node.props && node.props.className === 'tu-rankDim')[0]
   assert.ok(dim, 'the row has a subtitle')
-  assert.equal(textOf(dim), 'baidu')
+  assert.equal(textOf(dim), 'provider-a')
   // A provider whose name already equals its id needs no subtitle.
-  const arkRow = rows.find((row) => textOf(row).includes('ark'))
+  const arkRow = rows.find((row) => textOf(row).includes('provider-c'))
   assert.ok(arkRow, 'the unlabelled provider is listed')
   assert.equal(findAll(arkRow, (node) => node.props && node.props.className === 'tu-rankDim').length, 0,
     'no subtitle when the name is already the id')
@@ -1343,7 +1343,7 @@ test('the ranking hides the unidentified row by default', async () => {
   assert.ok(labels.length > 0, 'the ranking renders rows')
   assert.ok(!labels.some((label) => label.includes('未识别')), `no unidentified row: ${labels.join(' | ')}`)
   // The normal rows are untouched.
-  assert.ok(labels.some((label) => label.includes('V4.1 Flash 1017')))
+  assert.ok(labels.some((label) => label.includes('Alpha Prime')))
 })
 
 test('turning the switch on reveals the unidentified row and persists the choice', async () => {
