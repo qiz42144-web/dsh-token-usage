@@ -1,8 +1,7 @@
 {
-  "name": "dsh-token-usage",
+  "name": "@qiz42144-web/dsh-token-usage",
   "version": "1.0.0",
-  "private": true,
-  "description": "Local Token usage statistics for the DeepSeek Harness: per provider, account, plan and model, with time ranges, trends and request records. Never calls a model.",
+  "description": "A lightweight DSH plugin for tracking and visualizing AI token usage: per provider, account, plan and model, with time ranges, trends, a yearly heatmap and a request log. Never calls a model.",
   "type": "module",
   "main": "index.js",
   "exports": {
@@ -23,9 +22,7 @@
     "README_EN.md",
     "LICENSE",
     "TEST-REPORT.md",
-    "docs",
-    "dev",
-    "test"
+    "docs"
   ],
   "dsh": {
     "bundle": {
@@ -44,9 +41,31 @@
     "dsh",
     "dsh-plugin",
     "deepseek-harness",
+    "token-usage",
+    "token-tracking",
+    "ai-usage",
+    "usage-analytics",
+    "dashboard",
+    "data-visualization",
     "tokens",
     "usage",
     "statistics"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "author": "qiz42144-web",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiz42144-web/dsh-token-usage.git"
+  },
+  "homepage": "https://github.com/qiz42144-web/dsh-token-usage#readme",
+  "bugs": {
+    "url": "https://github.com/qiz42144-web/dsh-token-usage/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
 }

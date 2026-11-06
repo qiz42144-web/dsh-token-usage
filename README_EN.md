@@ -3,6 +3,7 @@
 [简体中文](README.md) | **English**
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-35CFE3.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/@qiz42144-web/dsh-token-usage.svg)](https://www.npmjs.com/package/@qiz42144-web/dsh-token-usage)
 [![GitHub stars](https://img.shields.io/github/stars/qiz42144-web/dsh-token-usage)](https://github.com/qiz42144-web/dsh-token-usage/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/qiz42144-web/dsh-token-usage)](https://github.com/qiz42144-web/dsh-token-usage/issues)
 
@@ -72,29 +73,70 @@ Total, input, output, cached, **cache hit rate**, reasoning and request count �
 
 ## Install
 
-The plugin is a normal DSH bundle. From a DSH session:
+### From npm (recommended)
+
+Package: **`@qiz42144-web/dsh-token-usage`**
+Registry page: https://www.npmjs.com/package/@qiz42144-web/dsh-token-usage
+
+From a DSH session:
+
+```
+plugin_manager install_bundle  target = @qiz42144-web/dsh-token-usage
+```
+
+### From source
+
+```bash
+git clone https://github.com/qiz42144-web/dsh-token-usage.git
+```
+
+Then, from a DSH session, point `target` at the cloned directory:
 
 ```
 plugin_manager install_bundle  target = <absolute path to this directory>
 ```
 
-Or with the `dsh` CLI:
+### After installing
+
+A "Token usage" entry appears in the sidebar; opening it shows the full page. The database starts empty and fills from the next request onwards.
+
+### Update
+
+Run the same install command again to upgrade:
 
 ```
-dsh plugin --profile <profile> add <absolute path to this directory>
+plugin_manager install_bundle  target = @qiz42144-web/dsh-token-usage
 ```
 
-A "Token usage" entry appears in the sidebar; opening it shows the full page.
-
-> **Restart DSH after changing the plugin's own source.** A newly installed bundle activates immediately, but a changed Host module needs a fresh module generation; the plugin manager reports `restart-required` for that case.
+> **Restart DSH after changing the plugin's own source.** A new version applies immediately; if the update touched the Host half, the plugin manager reports `restart-required` — restart as prompted.
 
 ### Uninstall
 
 ```
-plugin_manager remove_bundle  target = dsh-token-usage
+plugin_manager remove_bundle  target = @qiz42144-web/dsh-token-usage
 ```
 
+For a source install, pass the directory path instead: `plugin_manager remove_bundle  target = <absolute path to this directory>`.
+
 The database is not deleted. Remove `$DSH_HOME/token-usage/` yourself if you want the history gone.
+
+### Troubleshooting
+
+**No sidebar entry after installing**
+
+Check that the install reported `applied` rather than `restart-required`; the latter needs a DSH restart.
+
+**"Cannot find module `@qiz42144-web/dsh-token-usage`"**
+
+The profile's `node_modules` does not contain the package. Run the install command again, or check the profile's `package.json` for the dependency.
+
+**The page opens but stays empty**
+
+There is no data yet. The plugin records only requests made after installation; it does not backfill history.
+
+**I want the database somewhere else**
+
+Add `dbPath` to the `token-usage` entry in the profile config, as shown under Configuration.
 
 ### Configuration
 

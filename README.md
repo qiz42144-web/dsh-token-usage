@@ -3,6 +3,7 @@
 **简体中文** | [English](README_EN.md)
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-35CFE3.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/@qiz42144-web/dsh-token-usage.svg)](https://www.npmjs.com/package/@qiz42144-web/dsh-token-usage)
 [![GitHub stars](https://img.shields.io/github/stars/qiz42144-web/dsh-token-usage)](https://github.com/qiz42144-web/dsh-token-usage/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/qiz42144-web/dsh-token-usage)](https://github.com/qiz42144-web/dsh-token-usage/issues)
 
@@ -72,29 +73,70 @@
 
 ## 安装
 
-插件是一个标准的 DSH bundle。在 DSH 会话中执行：
+### 从 npm 安装（推荐）
+
+npm 包名：**`@qiz42144-web/dsh-token-usage`**
+包地址：https://www.npmjs.com/package/@qiz42144-web/dsh-token-usage
+
+在 DSH 会话中执行：
+
+```
+plugin_manager install_bundle  target = @qiz42144-web/dsh-token-usage
+```
+
+### 从源码安装
+
+```bash
+git clone https://github.com/qiz42144-web/dsh-token-usage.git
+```
+
+然后在 DSH 会话中执行，`target` 指向克隆下来的目录：
 
 ```
 plugin_manager install_bundle  target = <本目录的绝对路径>
 ```
 
-或者使用 `dsh` CLI：
+### 安装后
+
+侧边栏会出现「Token 用量」入口，点开即是完整页面。第一次打开时数据库为空，从下一个请求开始自动记录。
+
+### 更新
+
+重新执行一次安装命令即可升级到最新版：
 
 ```
-dsh plugin --profile <profile> add <本目录的绝对路径>
+plugin_manager install_bundle  target = @qiz42144-web/dsh-token-usage
 ```
 
-安装后侧边栏会出现「Token 用量」入口，点开即是完整页面。
-
-> **修改插件源码后需要重启 DSH。** 新安装的 bundle 会立即生效，但改动 Host 模块需要新的模块代次，插件管理器会提示 `restart-required`。
+> **修改插件源码后需要重启 DSH。** 新版本会立即生效；如果这次更新改动了 Host 侧模块，插件管理器会提示 `restart-required`，按提示重启即可。
 
 ### 卸载
 
 ```
-plugin_manager remove_bundle  target = dsh-token-usage
+plugin_manager remove_bundle  target = @qiz42144-web/dsh-token-usage
 ```
 
+从源码安装的用目录路径：`plugin_manager remove_bundle  target = <本目录的绝对路径>`。
+
 数据库不会被删除。如需彻底清除历史，请手动删除 `$DSH_HOME/token-usage/`。
+
+### 常见安装问题
+
+**装完侧边栏没有入口**
+
+确认安装返回 `applied` 而不是 `restart-required`；后者需要重启 DSH。
+
+**提示找不到模块 `@qiz42144-web/dsh-token-usage`**
+
+说明 profile 的 `node_modules` 里没有这个包。重新执行安装命令，或检查 profile 的 `package.json` 里是否有该依赖。
+
+**页面能打开但一直是空的**
+
+数据库里还没有数据。插件只记录安装之后发生的新请求，不会回溯历史。
+
+**想换一个数据库位置**
+
+在 profile 配置里给 `token-usage` 这一项加 `dbPath`，见下方「配置」。
 
 ### 配置
 
