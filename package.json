@@ -1,6 +1,6 @@
 {
   "name": "@aixnest/dsh-token-usage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight DSH plugin for tracking and visualizing AI token usage: per provider, account, plan and model, with time ranges, trends, a yearly heatmap and a request log. Never calls a model.",
   "type": "module",
   "main": "index.js",

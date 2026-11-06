@@ -23,7 +23,7 @@ export const name = 'dsh-token-usage'
 /** The page needs the HTTP carrier; without it the plugin stays inactive. */
 export const inject = ['webServer']
 
-const VERSION = '1.0.0'
+const VERSION = '1.0.1'
 
 function logError(...args) {
   try { console.error('[dsh-token-usage]', ...args) } catch {}
